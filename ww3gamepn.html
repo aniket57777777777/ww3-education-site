@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World War III - Educational Simulation</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#111;
+    color:#eee;
+}
+
+header{
+    background:#b30000;
+    padding:20px;
+    text-align:center;
+}
+
+header h1{
+    margin:0;
+}
+
+nav{
+    background:#222;
+    padding:10px;
+    text-align:center;
+}
+
+nav a{
+    color:#fff;
+    margin:0 15px;
+    text-decoration:none;
+}
+
+section{
+    padding:40px;
+    max-width:900px;
+    margin:auto;
+}
+
+.card{
+    background:#1e1e1e;
+    padding:20px;
+    margin:20px 0;
+    border-radius:8px;
+}
+
+button{
+    background:#b30000;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+button:hover{
+    background:#ff0000;
+}
+
+footer{
+    background:#222;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>World War III – Educational Scenario</h1>
+<p>Understanding how global conflicts could escalate</p>
+</header>
+
+<nav>
+<a href="#intro">Introduction</a>
+<a href="#timeline">Possible Timeline</a>
+<a href="#impact">Global Impact</a>
+<a href="#prevention">Prevention</a>
+</nav>
+
+<section id="intro">
+<div class="card">
+<h2>Introduction</h2>
+<p>
+This page presents a <b>fictional educational scenario</b> about how a global conflict
+like World War III could begin. It is designed to help students understand
+international relations, diplomacy, and the importance of conflict prevention.
+</p>
+</div>
+</section>
+
+<section id="timeline">
+<div class="card">
+<h2>Possible Escalation Timeline (Hypothetical)</h2>
+<ul>
+<li>Regional conflict between two nations</li>
+<li>Military alliances become involved</li>
+<li>Cyber attacks and economic sanctions increase tensions</li>
+<li>Large-scale military mobilization</li>
+<li>Global conflict affecting multiple continents</li>
+</ul>
+</div>
+</section>
+
+<section id="impact">
+<div class="card">
+<h2>Potential Global Impact</h2>
+<ul>
+<li>Economic collapse and trade disruption</li>
+<li>Humanitarian crises and refugee movements</li>
+<li>Cyber warfare targeting infrastructure</li>
+<li>Environmental damage</li>
+</ul>
+</div>
+</section>
+
+<section id="prevention">
+<div class="card">
+<h2>How Wars Can Be Prevented</h2>
+<p>
+International diplomacy, organizations like the 
+United Nations, and peaceful negotiations play
+an important role in preventing global conflicts.
+</p>
+
+<button onclick="showMessage()">Why Peace Matters</button>
+<p id="message"></p>
+</div>
+</section>
+
+<footer>
+<p>Educational Project | International Relations Study</p>
+</footer>
+
+<script>
+function showMessage(){
+    document.getElementById("message").innerText =
+    "Global cooperation, diplomacy, and communication between nations are essential to maintain peace.";
+}
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Conflict Study - Educational Game</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#111;
+    color:#eee;
+}
+
+header{
+    background:#b30000;
+    padding:20px;
+    text-align:center;
+}
+
+section{
+    max-width:900px;
+    margin:auto;
+    padding:40px;
+}
+
+.card{
+    background:#1e1e1e;
+    padding:20px;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+button{
+    padding:12px 20px;
+    margin:10px;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.good{background:#2e8b57;color:white;}
+.bad{background:#b30000;color:white;}
+
+#meter{
+    height:25px;
+    width:100%;
+    background:#333;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+#tension{
+    height:100%;
+    width:40%;
+    background:orange;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Global Conflict Simulator (Educational)</h1>
+<p>Learn how decisions affect international peace</p>
+</header>
+
+<section>
+
+<div class="card">
+<h2>Game Goal</h2>
+<p>
+Try to keep the global tension level **low** by making diplomatic decisions.
+Poor decisions will increase tension and may trigger a global conflict scenario.
+</p>
+</div>
+
+<div class="card">
+<h2>Global Tension Meter</h2>
+<div id="meter">
+<div id="tension"></div>
+</div>
+<p id="status">Current tension: Moderate</p>
+</div>
+
+<div class="card">
+<h2>Scenario</h2>
+<p id="scenario">
+Two neighboring countries have a border dispute. Military forces are gathering.
+What should world leaders do?
+</p>
+
+<button class="good" onclick="decision(-10)">
+Start diplomatic negotiations
+</button>
+
+<button class="good" onclick="decision(-5)">
+Send UN peace mediators
+</button>
+
+<button class="bad" onclick="decision(15)">
+Send military troops
+</button>
+
+<button class="bad" onclick="decision(20)">
+Launch cyber attacks
+</button>
+
+</div>
+
+<div class="card">
+<button onclick="resetGame()">Restart Simulation</button>
+</div>
+
+</section>
+
+<script>
+
+let tension = 40;
+
+function decision(change){
+
+tension += change;
+
+if(tension < 0) tension = 0;
+if(tension > 100) tension = 100;
+
+document.getElementById("tension").style.width = tension + "%";
+
+let status = "";
+
+if(tension < 30)
+status = "Low tension – diplomacy is working.";
+
+else if(tension < 60)
+status = "Moderate tension – situation unstable.";
+
+else if(tension < 85)
+status = "High tension – conflict risk increasing.";
+
+else
+status = "Critical tension – global conflict risk!";
+
+document.getElementById("status").innerText = status;
+}
+
+function resetGame(){
+tension = 40;
+document.getElementById("tension").style.width = tension + "%";
+document.getElementById("status").innerText = "Current tension: Moderate";
+}
+
+</script>
+
+</body>
+</html>
+<footer style="background:#222;text-align:center;padding:25px;color:#ccc;margin-top:40px;">
+    <h3>Project Credits</h3>
+    <p><strong>Creator:</strong> Aniket</p>
+    <p><strong>Editor:</strong> Ishika</p>
+    <p><strong>Produced By:</strong> Reena Rai</p>
+    <p style="margin-top:10px;font-size:14px;">
+        Educational Project on Global Conflict Studies
+    </p>
+</footer>
